@@ -176,6 +176,7 @@ const routes = [
     type: "collapse",
     name: "Assisstance",
     key: "Assisstance",
+    role:"ROLE_USER",
     icon: <Icon fontSize="small">Assisstance</Icon>,
     route: "/client/Assisstance",
     component: <Assisstance/>,
@@ -189,20 +190,12 @@ const routes = [
     route: "/client/compte",
     component: <AjoutCompte/>,
   },
-  {
-    type: "collapse",
-    name: "List Des Comptes",
-    role:"ROLE_USER",
-    key: "List Des Comptes",
-    icon: <Icon fontSize="small">List Des Comptes</Icon>,
-    route: "/admin/listComptes",
-    component: <ListCompte/>,
-  },
+
    // espace agent
   {
     type: "collapse",
     name: "List Clients",
-    role:"ROLE_USER",
+    role:"ROLE_AGENT",
     key: "listClient",
     icon: <Icon fontSize="small">Client</Icon>,
     route: "/agent/listclient",
@@ -211,7 +204,7 @@ const routes = [
   {
     type: "collapse",
     name: "List Comptes",
-    role:"ROLE_USER",
+    role:"ROLE_AGENT",
     key: "List Comptes",
     icon: <Icon fontSize="small">List Comptes</Icon>,
     route: "/agent/listComptes",
@@ -220,7 +213,7 @@ const routes = [
   {
     type: "collapse",
     name: "List Credit",
-    role:"ROLE_USER",
+    role:"ROLE_AGENT",
     key: "listCredit",
     icon: <Icon fontSize="small">Credit</Icon>,
     route: "/agent/demmandesCredits",
@@ -230,7 +223,7 @@ const routes = [
   {
     type: "collapse",
     name: "Acceuil",
-    role:"ROLE_USER",
+    role:"ROLE_ADMIN",
     key: "Acceuil",
     icon: <Icon fontSize="small">Acceuil</Icon>,
     route: "/admin/acceuil",
@@ -239,7 +232,7 @@ const routes = [
   {
     type: "collapse",
     name: "List Des Agents",
-    role:"ROLE_USER",
+    role:"ROLE_ADMIN",
     key: "List Des Agents",
     icon: <Icon fontSize="small">List Des Agents</Icon>,
     route: "/admin/listagents",
@@ -248,7 +241,7 @@ const routes = [
   {
     type: "collapse",
     name: "List Des Actualité",
-    role:"ROLE_USER",
+    role:"ROLE_ADMIN",
     key: "List Des Actualité",
     icon: <Icon fontSize="small">List Des Actualité</Icon>,
     route: "/admin/actualite",

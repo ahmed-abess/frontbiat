@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 import {getRole} from "./authService";
 
 /* Route Protect */
@@ -8,9 +8,10 @@ function RouteView() {
     /* use Location */
     const location = useLocation();
     /* use history */
-    const history = useNavigate();
+    const history = useHistory();
     /* get Current User */
     const role = getRole();
+if (getRole()){
 
     if (
         location.pathname === "/" ||
@@ -23,14 +24,15 @@ function RouteView() {
         return "homePage";
     } else if (location.pathname === "/sign-in") {
 
-            if (getRole()=='ROLE_USER') history("/client/dashboard");
-            else if (getRole()=='ROLE_AGENT') history("/agent/dashboard");
-            else if (getRole()=='ROLE_ADMIN') history("/admin/dashboard");
-            else return "homePage";
+        if (getRole()=='ROLE_USER') history.push("/client/dashboard");
+        else if (getRole()=='ROLE_AGENT') history.push("/agent/dashboard");
+        else if (getRole()=='ROLE_ADMIN') history.push("/admin/dashboard");
+        else return "homePage";
 
-    } else {
-       history.push("/");
+    }else {
+        return null;
     }
+}
 }
 
 

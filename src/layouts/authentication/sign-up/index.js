@@ -55,7 +55,7 @@ export default function SignUp() {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-    const [gouvernorats, setGouvernorats] = useState("")
+
     useEffect(() => {
 
     });
@@ -162,7 +162,7 @@ export default function SignUp() {
                                     id="nom"
                                     label="Nom"
                                     autoFocus
-                                    {...register("firstName")}
+                                    {...register("nom")}
                                 />
                             </Grid>
                             <Grid item xs={12} sm={6}>
@@ -172,7 +172,17 @@ export default function SignUp() {
                                     id="prenom"
                                     label="Prenom"
                                     name="prenom"
-
+                                    {...register("prenom")}
+                                />
+                            </Grid>
+                            <Grid item xs={12} sm={12}>
+                                <TextField
+                                    required
+                                    fullWidth
+                                    id="pseudo"
+                                    label="Pseudo"
+                                    name="pseudo"
+                                    {...register("pseudo")}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -182,7 +192,7 @@ export default function SignUp() {
                                     id="email"
                                     label="Email"
                                     name="email"
-
+                                    {...register("email")}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -193,106 +203,21 @@ export default function SignUp() {
                                     label="Mot De Passe"
                                     type="password"
                                     id="password"
-
+                                    {...register("password")}
                                 />
                             </Grid>
-                            <Grid item xs={12}>
+                            <Grid item xs={12} sm={12}>
                                 <TextField
                                     required
                                     fullWidth
-                                    name="gouvernarat"
-                                    label="Gouvernarat"
-                                    select
-                                    id="gouvernarat"
-
-                                >
-                                    {gov.map((option) => (
-                                        <MenuItem key={option.name} value={option.name}>
-                                            {option.name}
-                                        </MenuItem>
-                                    ))}
-                                </TextField>
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TextField
-                                    required
-                                    fullWidth
-                                    name="telephone"
-                                    label="Telephone"
-                                    type="text"
-                                    id="telephone"
-
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <InputLabel htmlFor="component-error">Date De naissance</InputLabel>
-                                <TextField
-                                    required
-                                    fullWidth
-                                    name="dateNaissance"
-                                    required
-                                    type="date"
-                                    id="dateNaissance"
-
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TextField
-                                    required
-                                    fullWidth
-                                    name="nationnalite"
-                                    required
-                                    type="text"
-                                    label="Nationnalite"
-                                    id="nationnalite"
-
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-
-                                <TextField
-
-                                    fullWidth
-                                    name="situation"
-                                    label="situation"
-                                    select
-                                    id="situation"
-
-                                >
-                                    <MenuItem key='celibateaire' value='celibateaire'>
-                                        celibateaire
-                                    </MenuItem><MenuItem key='marié' value='marié'>
-                                    marié
-                                </MenuItem>
-                                </TextField>
-                            </Grid>
-                            <Grid item xs={12}>
-
-                                <TextField
-                                    required
-                                    fullWidth
-                                    name="cin"
-                                    required
-                                    type="text"
                                     id="cin"
                                     label="CIN"
-
+                                    name="cin"
+                                    {...register("cin")}
                                 />
-                            </Grid> <Grid item xs={12}>
-
-                            <TextField
-                                required
-                                fullWidth
-                                name="payeNaissance"
-                                required
-                                type="text"
-                                id="payeNaissance"
-                                label="Pay De Naissance"
-                            />
+                            </Grid>
                         </Grid>
 
-
-                        </Grid>
                         <Button
                             type="submit"
                             fullWidth
@@ -303,7 +228,7 @@ export default function SignUp() {
                         </Button>
                         <Grid container justifyContent="flex-end">
                             <Grid item>
-                                <Link href="#" variant="body2">
+                                <Link href="/sign-in" variant="body2">
                                     Vous avez déjà un compte? connexion
                                 </Link>
                             </Grid>

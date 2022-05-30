@@ -16,7 +16,7 @@ Coded by www.creative-tim.com
 import { useState, useEffect, useMemo } from "react";
 
 // react-router components
-import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import {Routes, Route, Navigate, useLocation, Switch, BrowserRouter as Router} from "react-router-dom";
 // @mui material components
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -52,7 +52,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import brandWhite from "assets/images/logo-ct.png";
 import brandDark from "assets/images/logo-ct-dark.png";
 import {getRole} from "./services/authService";
-
+import {AllRoutes} from "./layouts/AllRoutes";
 
 export default function App() {
   const [controller, dispatch] = useMaterialUIController();
@@ -168,10 +168,11 @@ const role=getRole();
           </>
         )}
         {layout === "vr" && <Configurator />}
-        <Routes>
-          {getRoutes(routes)}
-          <Route path="*" element={<Navigate to="/dashboard" />} />
-        </Routes>
+        <Router>
+          <Switch>
+            <AllRoutes />
+          </Switch>
+        </Router>
       </ThemeProvider>
     </CacheProvider>
   ) : (
@@ -198,10 +199,11 @@ const role=getRole();
       )}
       {layout === "vr" && <Configurator />}
 
-       <Routes>
-         {getRoutes(routes)}
-         <Route path="*" element={<Navigate to="/home" />} />
-       </Routes>
+      <Router>
+        <Switch>
+          <AllRoutes />
+        </Switch>
+      </Router>
 
     </ThemeProvider>
   );

@@ -13,7 +13,9 @@ Auth.displayName = "authContext";
 function reducer( state ,action) {
     switch (action.type) {
         case "USER_LOGIN":
-            return { ...state, miniSidenav: action.payload };
+            return { ...state, user: action.payload };
+        case "USER_SIGNUP":
+            return { ...state, user: action.payload };
 
 
         default:

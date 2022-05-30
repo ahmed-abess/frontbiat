@@ -1,4 +1,4 @@
-import {API_HOST, API_LOGIN} from "../Api";
+import {API_HOST, API_LOGIN, API_SIGNUP} from "../Api";
 import axios from "axios";
 import jwtDecode from "jwt-decode";
 
@@ -46,4 +46,15 @@ export const signin = (dispatch,data, history) => {
         //dispatch({ type:"TOAST_ERR",payload:{status:"danger",msg:"connexion échoué"}})
         history.push('/sign-in');
     })
+}
+export  const signUp =(dispatch,data)=>{
+    const URL = API_HOST + API_SIGNUP;
+    console.log(data)
+    axios.post(URL,data).then(
+        (response) => {
+            console.log(response)
+            dispatch({type: "USER_SIGNUP", value: response.data});
+            window.location.assign('/sign-in')
+        }
+    )
 }
